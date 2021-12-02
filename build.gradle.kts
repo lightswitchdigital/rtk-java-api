@@ -16,13 +16,22 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter") {
+        exclude("org.springframework.boot", "spring-boot-starter-logging")
+    }
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     implementation("org.apache.hadoop:hadoop-common:3.3.1")
     testImplementation("org.apache.hadoop:hadoop-hdfs:3.3.1")
     implementation("org.apache.hadoop:hadoop-mapreduce-client-core:3.3.1")
+
+    implementation("org.apache.solr:solr-solrj:8.11.0")
+    implementation("org.apache.solr:solr-core:8.11.0")
+    implementation("org.apache.solr:solr-common:1.3.0")
+
+    implementation("org.jsoup:jsoup:1.14.3")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

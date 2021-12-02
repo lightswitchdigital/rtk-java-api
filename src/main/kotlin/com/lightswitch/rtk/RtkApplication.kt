@@ -1,6 +1,6 @@
 package com.lightswitch.rtk
 
-import com.lightswitch.rtk.parser.Parser
+import com.lightswitch.rtk.solr.SolrService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.CommandLineRunner
@@ -15,7 +15,9 @@ class RtkApplication : CommandLineRunner {
     }
 
     override fun run(vararg args: String?) {
-        Parser.test()
+
+        SolrService.test()
+
     }
 
 }
