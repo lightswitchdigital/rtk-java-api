@@ -16,7 +16,8 @@ class RtkApplication : CommandLineRunner {
 
     override fun run(vararg args: String?) {
 
-        SolrService.test()
+//        SolrService.test()
+        SolrService.Search.search()
 
     }
 

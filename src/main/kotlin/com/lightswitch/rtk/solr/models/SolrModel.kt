@@ -8,7 +8,7 @@ enum class Source {
 
 data class SolrModel(
     @Field var id: String,
-    @Field var source: Source,
+    @Field var source: String,
     @Field var url: String,
 ) {
 

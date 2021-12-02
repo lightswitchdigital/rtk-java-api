@@ -1,5 +1,7 @@
 package com.lightswitch.rtk.solr
 
+import com.lightswitch.rtk.parser.SearchResult
+import com.lightswitch.rtk.parser.SearchResults
 import com.lightswitch.rtk.solr.models.SolrModel
 import com.lightswitch.rtk.solr.models.Source
 import org.apache.solr.client.solrj.SolrClient
@@ -32,8 +34,8 @@ object SolrService {
 
     fun test() {
 
-        val model1 = SolrModel("1", Source.VK, "vk.com/sireax")
-        val model2 = SolrModel("2", Source.OTHER, "vc.ru/post/lk234soiujsdf")
+        val model1 = SolrModel("1", Source.VK.toString(), "vk.com/sireax")
+        val model2 = SolrModel("2", Source.OTHER.toString(), "vc.ru/post/lk234soiujsdf")
 
         SolrService.indexModels(mutableListOf(model1, model2))
 
@@ -63,6 +65,31 @@ object SolrService {
             )
         }
         out.println()
+    }
+
+    object Search {
+
+        fun search(): SearchResults {
+            var results = SearchResults()
+
+            val source = "source:${Source.VK}"
+            println(source)
+            val query = SolrQuery("*:*")
+            query.addFilterQuery(source)
+//            query.start = 0
+
+            val response = client.query(query)
+
+            for (result in response.results) {
+                val url = result.getFieldValue("url")
+                println(url)
+                results.add(SearchResult("test sdfsd", hashMapOf("url" to url.toString())))
+            }
+
+            return results
+
+        }
+
     }
 
 }

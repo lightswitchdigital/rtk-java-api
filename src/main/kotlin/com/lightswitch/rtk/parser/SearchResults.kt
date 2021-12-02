@@ -10,7 +10,7 @@ class SearchResults : MutableList<SearchResult> by mutableListOf() {
 
 }
 
-data class SearchResult(val title: String, val data: HashMap<String, ByteArray>) {
+data class SearchResult(val title: String, val data: HashMap<String, String>) {
 
 
 }
