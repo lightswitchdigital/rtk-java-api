@@ -1,6 +1,6 @@
 package com.lightswitch.rtk
 
-import com.lightswitch.rtk.solr.SolrService
+import com.lightswitch.rtk.dfs.HadoopService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.CommandLineRunner
@@ -17,7 +17,9 @@ class RtkApplication : CommandLineRunner {
     override fun run(vararg args: String?) {
 
 //        SolrService.test()
-        SolrService.Search.search()
+//        SolrService.Search.search()
+
+        HadoopService.runMapReduce()
 
     }
 
