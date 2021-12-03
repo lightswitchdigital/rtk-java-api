@@ -1,11 +1,15 @@
 package com.lightswitch.rtk
 
 import com.lightswitch.rtk.dfs.HadoopService
+import com.lightswitch.rtk.dfs.jobs.parse.ParseJob
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.support.AbstractApplicationContext
+import org.springframework.context.support.ClassPathXmlApplicationContext
+
 
 @SpringBootApplication
 class RtkApplication : CommandLineRunner {
@@ -16,10 +20,14 @@ class RtkApplication : CommandLineRunner {
 
     override fun run(vararg args: String?) {
 
+        val context: AbstractApplicationContext = ClassPathXmlApplicationContext(
+            "/META-INF/spring/application-context.xml", ParseJob::class.java
+        )
 //        SolrService.test()
 //        SolrService.Search.search()
 
         HadoopService.runMapReduce()
+//        HadoopService.test()
 
     }
 

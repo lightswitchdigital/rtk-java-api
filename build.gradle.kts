@@ -26,10 +26,20 @@ dependencies {
     implementation("org.apache.hadoop:hadoop-common:3.3.1")
     testImplementation("org.apache.hadoop:hadoop-hdfs:3.3.1")
     implementation("org.apache.hadoop:hadoop-mapreduce-client-core:3.3.1")
+    implementation("org.apache.hadoop:hadoop-client:3.3.1")
+    implementation("org.apache.hadoop:hadoop-mapreduce-client-common:3.3.1")
 
     implementation("org.apache.solr:solr-solrj:8.11.0")
     implementation("org.apache.solr:solr-core:8.11.0")
     implementation("org.apache.solr:solr-common:1.3.0")
+
+    implementation("org.springframework.data:spring-data-hadoop:2.5.0.RELEASE")
+    implementation("org.springframework.data:spring-data-commons:2.5.0")
+    implementation("org.springframework.data:spring-data-hadoop:2.5.0.RELEASE")
+
+    implementation("org.seleniumhq.selenium:selenium-java:4.1.0")
+    implementation("org.seleniumhq.selenium:selenium-api:4.1.0")
+    implementation("org.seleniumhq.selenium:selenium-chrome-driver:4.1.0")
 
     implementation("org.jsoup:jsoup:1.14.3")
 
