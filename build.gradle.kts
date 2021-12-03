@@ -43,6 +43,8 @@ dependencies {
 
     implementation("org.jsoup:jsoup:1.14.3")
 
+    implementation("org.unix4j:unix4j-command:0.6")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

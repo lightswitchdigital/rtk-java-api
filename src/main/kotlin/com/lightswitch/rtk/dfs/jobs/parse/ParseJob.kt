@@ -1,5 +1,6 @@
 package com.lightswitch.rtk.dfs.jobs.parse
 
+import com.lightswitch.rtk.UserInfo
 import com.lightswitch.rtk.dfs.HadoopService
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.Path
@@ -10,7 +11,12 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class ParseJob constructor(private val type: DocType, private val inputPath: String, private val outputPath: String) {
+class ParseJob constructor(
+    private val type: DocType,
+    private val user: UserInfo,
+    private val inputPath: String,
+    private val outputPath: String
+) {
 
     enum class DocType {
         HTML, TXT, XML

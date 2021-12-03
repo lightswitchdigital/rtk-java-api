@@ -1,5 +1,6 @@
 package com.lightswitch.rtk.dfs
 
+import com.lightswitch.rtk.UserInfo
 import com.lightswitch.rtk.dfs.jobs.parse.ParseJob
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.FileSystem
@@ -17,7 +18,7 @@ object HadoopService {
     fun test() {
         val uri: String = "source.txt"
         val conf = Configuration()
-        val fs: FileSystem = FileSystem.get(URI.create(uri), conf)
+        val fs: FileSystem = FileSystem.get(URI.create("/"), conf)
         var input: InputStream? = null
         try {
             input = fs.open(Path(uri))
@@ -31,7 +32,8 @@ object HadoopService {
 
         val job = ParseJob(
             ParseJob.DocType.HTML,
-            System.getProperty("user.dir") + "/input.txt",
+            UserInfo("123", "Егор Овчинников"),
+            System.getProperty("user.dir") + "/input.html",
             System.getProperty("user.dir") + "/output.txt"
         )
 

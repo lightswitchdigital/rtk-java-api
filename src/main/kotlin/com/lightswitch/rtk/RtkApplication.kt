@@ -1,7 +1,7 @@
 package com.lightswitch.rtk
 
-import com.lightswitch.rtk.dfs.HadoopService
 import com.lightswitch.rtk.dfs.jobs.parse.ParseJob
+import com.lightswitch.rtk.parser.Parser
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.CommandLineRunner
@@ -26,7 +26,9 @@ class RtkApplication : CommandLineRunner {
 //        SolrService.test()
 //        SolrService.Search.search()
 
-        HadoopService.runMapReduce()
+        println(Parser.parseFromFile("index.html"))
+//        Parser.parseAllFiles("/")
+//        HadoopService.runMapReduce()
 //        HadoopService.test()
 
     }

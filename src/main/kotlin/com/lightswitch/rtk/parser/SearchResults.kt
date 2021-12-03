@@ -1,5 +1,7 @@
 package com.lightswitch.rtk.parser
 
+import com.lightswitch.rtk.UserInfo
+
 class SearchResults : MutableList<SearchResult> by mutableListOf() {
 
     fun printAllResults() {
@@ -10,7 +12,15 @@ class SearchResults : MutableList<SearchResult> by mutableListOf() {
 
 }
 
-data class SearchResult(val title: String, val data: HashMap<String, String>) {
+data class SearchResult(
+    val type: Type,
+    val user: UserInfo,
+    val title: String,
+    val data: HashMap<String, String>
+) {
 
+    enum class Type {
+        SOCIAL, OTHER
+    }
 
 }

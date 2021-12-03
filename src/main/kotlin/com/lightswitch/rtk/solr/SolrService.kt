@@ -1,6 +1,5 @@
 package com.lightswitch.rtk.solr
 
-import com.lightswitch.rtk.parser.SearchResult
 import com.lightswitch.rtk.parser.SearchResults
 import com.lightswitch.rtk.solr.models.SolrModel
 import com.lightswitch.rtk.solr.models.Source
@@ -83,7 +82,7 @@ object SolrService {
             for (result in response.results) {
                 val url = result.getFieldValue("url")
                 println(url)
-                results.add(SearchResult("test sdfsd", hashMapOf("url" to url.toString())))
+//                results.add(SearchResult("test sdfsd", hashMapOf("url" to url.toString())))
             }
 
             return results
