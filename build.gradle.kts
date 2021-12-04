@@ -24,6 +24,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     implementation("org.apache.hadoop:hadoop-common:3.3.1")
+    implementation("org.springframework.boot:spring-boot-starter-web") {
+        exclude("org.springframework.boot", "spring-boot-starter-logging")
+    }
     testImplementation("org.apache.hadoop:hadoop-hdfs:3.3.1")
     implementation("org.apache.hadoop:hadoop-mapreduce-client-core:3.3.1")
     implementation("org.apache.hadoop:hadoop-client:3.3.1")
@@ -45,7 +48,7 @@ dependencies {
 
     implementation("org.unix4j:unix4j-command:0.6")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+//    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<KotlinCompile> {

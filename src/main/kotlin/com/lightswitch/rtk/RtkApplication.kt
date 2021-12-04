@@ -1,7 +1,7 @@
 package com.lightswitch.rtk
 
 import com.lightswitch.rtk.dfs.jobs.parse.ParseJob
-import com.lightswitch.rtk.parser.Parser
+import com.lightswitch.rtk.solr.SolrService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.CommandLineRunner
@@ -11,7 +11,7 @@ import org.springframework.context.support.AbstractApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext
 
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["com.lightswitch.rtk"])
 class RtkApplication : CommandLineRunner {
 
     companion object {
@@ -23,13 +23,8 @@ class RtkApplication : CommandLineRunner {
         val context: AbstractApplicationContext = ClassPathXmlApplicationContext(
             "/META-INF/spring/application-context.xml", ParseJob::class.java
         )
-//        SolrService.test()
-//        SolrService.Search.search()
 
-        println(Parser.parseFromFile("index.html"))
-//        Parser.parseAllFiles("/")
-//        HadoopService.runMapReduce()
-//        HadoopService.test()
+        val models = SolrService.Search.search()
 
     }
 
